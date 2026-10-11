@@ -2,6 +2,8 @@
 
 这是一个基于 [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template) 的静态网页仓库。
 
+**交给开发者：先阅读 [项目网页开发与交接指南](DEVELOPMENT.md)**，其中包含 3 个特点解析与 20 个完整 demo 的目标、开发流程、更换模板和发布回退说明。
+
 - 仓库：https://github.com/lxycopper/project-page
 - 网站目标地址：https://lxycopper.github.io/project-page/
 - 网页文件：`site/`
