@@ -7,7 +7,7 @@
 - 网页文件：`site/`
 - 发布方式：GitHub Actions；推送 `main` 上的网页修改后自动更新 GitHub Pages。
 - 当前内容：原模板示例、占位作者和占位论文链接，供接手人替换。它们不代表本项目的真实成果。
-- 发布状态（2026-10-11）：仓库已创建为私有，网页与发布配置已上传。GitHub 返回“Your current plan does not support GitHub Pages for this repository.”，当前网站尚未上线。需要所有者升级支持私有仓库 Pages 的套餐，或同意公开这个网页仓库后启用 Pages。
+- 发布设置（2026-10-11）：经所有者确认，本仓库公开，GitHub Pages 已启用。网站由 `.github/workflows/pages.yml` 自动发布，可在仓库 Actions 中查看部署状态。
 
 ## 1. 获得编辑权限
 
