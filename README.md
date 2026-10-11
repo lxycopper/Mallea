@@ -7,6 +7,7 @@
 - 网页文件：`site/`
 - 发布方式：GitHub Actions；推送 `main` 上的网页修改后自动更新 GitHub Pages。
 - 当前内容：原模板示例、占位作者和占位论文链接，供接手人替换。它们不代表本项目的真实成果。
+- 发布状态（2026-10-11）：仓库已创建为私有，网页与发布配置已上传。GitHub 返回“Your current plan does not support GitHub Pages for this repository.”，当前网站尚未上线。需要所有者升级支持私有仓库 Pages 的套餐，或同意公开这个网页仓库后启用 Pages。
 
 ## 1. 获得编辑权限
 
@@ -42,6 +43,8 @@ python3 -m http.server 8000 --bind 127.0.0.1 --directory site
 ```
 
 浏览器打开 http://127.0.0.1:8000/ 。保存修改后刷新即可；按 `Ctrl+C` 停止服务器。本地预览不需要上传或发布。
+
+轮播所需的 jQuery 已放在仓库中，不依赖 Google CDN。外部字体采用非阻塞加载；Google 字体或外部图标不可达时仍可使用系统字体预览。模板中的 YouTube 示例仍需访问 YouTube，可替换成本地 MP4。
 
 Windows 也可以使用 `py -m http.server 8000 --bind 127.0.0.1 --directory site`。
 
