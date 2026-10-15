@@ -1,0 +1,38 @@
+/* A restrained circular comparison grip, shared by every player. */
+.comparison-player .compare-stage .divider {
+  width: 1px;
+  transform: translateX(-.5px);
+  background: #ffffffd9;
+  box-shadow: none;
+}
+.comparison-player .compare-stage .divider::after {
+  content: '↔';
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid #fffffff0;
+  background: #15181dc2;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  box-shadow: none;
+  transition: background .15s ease;
+}
+.comparison-player .compare-stage:hover .divider::after,
+.comparison-player .compare-stage:focus-within .divider::after {
+  background: #15181de0;
+  border-color: #ffffff;
+  box-shadow: none;
+}
+.comparison-player .compare-stage.is-dragging .divider::after {
+  background: #15181de8;
+  border-color: #ffffff;
+  box-shadow: none;
+}

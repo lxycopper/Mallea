@@ -1,0 +1,99 @@
+/* Mallea v005 — three capabilities, read in a continuous vertical sequence. */
+.capabilities { padding-block: 64px 65px; }
+.capabilities > .wrap > .section-heading { margin-bottom: 36px; }
+.capabilities #feature-panels { display: block; }
+.capabilities .feature-panel { min-width: 0; scroll-margin-top: 100px; }
+.capabilities .feature-panel + .feature-panel {
+  margin-top: 38px;
+  padding-top: 36px;
+  border-top: 1px solid #cfcbbf;
+}
+.capabilities .feature-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 23px;
+}
+.capabilities .feature-name {
+  margin: 0;
+  min-width: 0;
+  max-width: 790px;
+  font-family: var(--font);
+  font-size: clamp(30px, 3.2vw, 43px);
+  font-weight: 500;
+  letter-spacing: -.049em;
+  line-height: 1.12;
+  text-wrap: balance;
+  color: var(--text);
+}
+.capabilities .feature-subtitle {
+  margin: 0;
+  flex: 0 1 310px;
+  max-width: 310px;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.35;
+  letter-spacing: -.018em;
+  color: #60715b;
+}
+.capabilities .feature-media-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px;
+}
+.capabilities .feature-copy-grid {
+  grid-template-columns: .8fr 1.35fr;
+  align-items: start;
+  gap: 56px;
+  padding-top: 23px;
+}
+.capabilities .feature-copy-grid > .feature-takeaway {
+  margin: 0;
+  max-width: 355px;
+  color: var(--green);
+  font-family: var(--serif);
+  font-size: clamp(21px, 2.15vw, 27px);
+  letter-spacing: -.027em;
+  line-height: 1.34;
+  text-wrap: balance;
+}
+.capabilities .feature-summary { margin: 0; font-size: 14px; line-height: 1.76; }
+.capabilities .feature-details { margin-top: 12px; }
+.capabilities .future-grid .future-demo { min-height: 205px; }
+
+@media (max-width: 1100px) {
+  .capabilities { padding-block: 58px; }
+  .capabilities .feature-heading { gap: 25px; }
+  .capabilities .feature-name { font-size: 35px; }
+  .capabilities .feature-subtitle { flex-basis: 270px; font-size: 19px; }
+  .capabilities .feature-media-grid { gap: 24px; }
+  .capabilities .feature-copy-grid { gap: 35px; }
+}
+@media (max-width: 850px) {
+  .capabilities .feature-heading { align-items: start; gap: 22px; }
+  .capabilities .feature-name { font-size: 31px; }
+  .capabilities .feature-subtitle { flex-basis: 230px; font-size: 18px; }
+  .capabilities .feature-media-grid { gap: 20px; }
+  .capabilities .feature-copy-grid > .feature-takeaway { font-size: 22px; }
+}
+@media (max-width: 700px) {
+  .capabilities { padding-block: 46px 49px; }
+  .capabilities > .wrap > .section-heading { margin-bottom: 29px; }
+  .capabilities .feature-panel { scroll-margin-top: 84px; }
+  .capabilities .feature-panel + .feature-panel { margin-top: 31px; padding-top: 29px; }
+  .capabilities .feature-heading { display: block; margin-bottom: 21px; }
+  .capabilities .feature-name { font-size: clamp(28px, 5.8vw, 35px); max-width: 530px; }
+  .capabilities .feature-subtitle { margin-top: 10px; font-size: 18px; max-width: 460px; }
+  .capabilities .feature-media-grid { grid-template-columns: minmax(0, 1fr); gap: 21px; }
+  .capabilities .feature-copy-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; padding-top: 21px; }
+  .capabilities .feature-copy-grid > .feature-takeaway { max-width: 460px; font-size: 23px; line-height: 1.32; }
+  .capabilities .feature-summary { font-size: 14px; line-height: 1.76; }
+  .capabilities .future-grid .future-demo { min-height: 168px; padding: 23px; }
+}
+
+/* One supplied pair for the extension feature. */
+.capabilities .feature-media-grid.single-example {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 900px;
+  margin-inline: auto;
+}

@@ -1,0 +1,71 @@
+/* Mallea v011 — an ordered three-column gallery. */
+.worlds .section-heading { margin-bottom: 23px; }
+.gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px 22px;
+  align-items: start;
+}
+.gallery > .demo-card { grid-column: auto; min-width: 0; }
+.gallery > .demo-card[hidden] { display: none !important; }
+.gallery .demo-caption { display: block; min-height: 110px; padding: 16px 17px 18px; }
+.gallery .demo-caption::before { top: 16px; bottom: 18px; }
+.gallery .demo-tag {
+  display: block;
+  width: fit-content;
+  margin: 0 0 8px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: .055em;
+  color: #7b836c;
+  text-transform: uppercase;
+}
+.gallery .demo-description { font-size: 12px; line-height: 1.62; }
+
+/* All controls remain available, including the seek track and time display. */
+.gallery .player-controls { min-height: 57px; gap: 3px; padding: 6px 7px; }
+.gallery .icon-button { flex: 0 0 44px; width: 44px; min-width: 44px; height: 44px; }
+.gallery .icon-button svg { width: 16px; height: 16px; }
+.gallery .play-toggle svg { width: 13px; height: 13px; }
+.gallery .seek { min-width: 31px; }
+.gallery .player-time { font-size: 9px; letter-spacing: 0; }
+.gallery .layer-tag { top: 10px; padding: 6px 7px; font-size: 8px; }
+.gallery .white-tag { left: 10px; }
+.gallery .render-tag { right: 10px; }
+.gallery .divider::after { width: 38px; height: 46px; font-size: 21px; }
+.gallery .video-center-play { left: 12px; bottom: 12px; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (min-width: 1600px) {
+  .gallery { gap: 27px 25px; }
+  .gallery .demo-caption { min-height: 105px; padding: 18px 20px 20px; }
+  .gallery .demo-description { font-size: 13px; }
+  .gallery .player-controls { gap: 5px; padding-inline: 9px; }
+  .gallery .player-time { font-size: 10px; }
+}
+@media (min-width: 701px) and (max-width: 959px) {
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 21px; }
+  .gallery .demo-caption { min-height: 105px; padding-inline: 18px; }
+  .gallery .demo-description { font-size: 13px; }
+}
+@media (max-width: 700px) {
+  .worlds .section-heading { margin-bottom: 22px; }
+  .gallery { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .gallery .demo-caption { min-height: 101px; padding: 16px 18px 18px; }
+  .gallery .demo-tag { font-size: 10px; margin-bottom: 8px; }
+  .gallery .demo-description { font-size: 13px; line-height: 1.6; }
+  .gallery .player-controls { gap: 4px; padding-inline: 7px; }
+  .gallery .player-time { font-size: 9px; }
+}
