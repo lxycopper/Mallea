@@ -1,8 +1,8 @@
 # 项目网页开发与交接指南
 
-适用仓库：[lxycopper/project-page](https://github.com/lxycopper/project-page)
+适用仓库：[lxycopper/Mallea](https://github.com/lxycopper/Mallea)
 
-线上地址：[lxycopper.github.io/project-page](https://lxycopper.github.io/project-page/)
+线上地址：[lxycopper.github.io/Mallea](https://lxycopper.github.io/Mallea/)
 
 更新日期：2026-10-11
 
@@ -45,8 +45,8 @@ GitHub Pages 托管静态页面。播放视频、切换选项、前后对比等�
 首次下载：
 
 ```bash
-git clone https://github.com/lxycopper/project-page.git
-cd project-page
+git clone https://github.com/lxycopper/Mallea.git
+cd Mallea
 ```
 
 如果推送时需要配置 GitHub 登录，可以使用 GitHub CLI：
@@ -132,7 +132,7 @@ site/static/images/
 
 优先使用浏览器广泛支持的 MP4 编码组合，例如 H.264 视频和 AAC 音频。有声音的 demo 应让用户主动开启声音。上传前检查画质、音画同步和文件大小；GitHub 普通 Git 推送有单文件 100 MiB 的限制。
 
-从首页引用资源时使用 `static/videos/demo-01.mp4` 这样的相对路径。以 `/static/` 开头的路径会从域名根目录寻找资源，与当前 `/project-page/` 的部署位置不匹配。新增子目录页面时，也要按其相对位置调整路径。
+从首页引用资源时使用 `static/videos/demo-01.mp4` 这样的相对路径。以 `/static/` 开头的路径会从域名根目录寻找资源，与当前 `/Mallea/` 的部署位置不匹配。新增子目录页面时，也要按其相对位置调整路径。
 
 ## 7. 日常协作与上传
 
@@ -175,7 +175,7 @@ git push -u origin website-update
 1. 配置 Node.js 并安装依赖。
 2. 执行构建命令。
 3. 将 `actions/upload-pages-artifact` 的 `path` 改成实际静态输出目录，例如 `dist/` 或 `out/`。
-4. 配置项目的部署基础路径 `/project-page/`，并检查资源路径和页面路由。
+4. 配置项目的部署基础路径 `/Mallea/`，并检查资源路径和页面路由。
 5. 更新工作流的 `push.paths`，让新的源码、依赖清单和构建配置修改都能触发部署。
 6. 更新 README 和本指南中的预览、构建及目录说明。
 
@@ -190,7 +190,7 @@ GitHub Pages 需要静态构建产物。若新模板依赖服务端渲染、数�
 - 论文、相关链接、页面锚点和分享元信息指向正确地址。
 - 网站资源都在正确位置；对需要保留的模板和第三方库署名完成检查。
 
-合并后打开 [Actions](https://github.com/lxycopper/project-page/actions)，确认 **Deploy GitHub Pages** 运行成功，再访问线上地址检查发布结果。工作流成功代表部署完成，仍需要检查线上显示和链接。
+合并后打开 [Actions](https://github.com/lxycopper/Mallea/actions)，确认 **Deploy GitHub Pages** 运行成功，再访问线上地址检查发布结果。工作流成功代表部署完成，仍需要检查线上显示和链接。
 
 ## 10. 常见问题与回退
 
@@ -201,11 +201,11 @@ GitHub Pages 需要静态构建产物。若新模板依赖服务端渲染、数�
 | 部署失败 | 打开失败步骤日志；检查 **Settings → Pages → Source** 是否为 **GitHub Actions** |
 | 线上图片或视频 404 | 检查文件已提交、路径大小写一致，以及是否误用了 `/static/` 等域名根路径 |
 | 视频无法播放 | 检查文件路径、编码及大小；确认上传的是实际媒体文件，而非 Git LFS 指针 |
-| 更换框架后首页或资源 404 | 检查构建输出目录、`/project-page/` 基础路径和路由配置 |
+| 更换框架后首页或资源 404 | 检查构建输出目录、`/Mallea/` 基础路径和路由配置 |
 | 仅修改文档后没有部署记录 | 属于现有配置的正常行为；确需重发时可在 Actions 中手动运行工作流 |
 
 已经发布的修改需要撤回时，可对对应 Pull Request 使用 GitHub 的 **Revert** 创建回退 PR，审阅合并后重新部署。直接提交的修改也可以通过 `git revert` 创建回退提交。优先保留共享历史；回退后仍需确认 Actions 成功和线上效果。
 
 ## 11. 可以直接转发给开发者的交接说明
 
-> 请在 https://github.com/lxycopper/project-page 基础上开发项目展示网页。线上地址为 https://lxycopper.github.io/project-page/ ，网页文件位于 `site/`，推送或合并网页修改到 `main` 后会自动发布。首页需要展示 3 个特点，每个特点配说明文字与解析 demo，后面集中展示 20 个完整 demo。请先在开发分支修改并本地预览，通过 Pull Request 提交，并附上电脑和手机宽度下的截图。可以更换模板，但需要保留或同步调整部署流程，确保合并后线上仍可访问。完整开发流程见仓库的 `DEVELOPMENT.md`。
+> 请在 https://github.com/lxycopper/Mallea 基础上开发项目展示网页。线上地址为 https://lxycopper.github.io/Mallea/ ，网页文件位于 `site/`，推送或合并网页修改到 `main` 后会自动发布。首页需要展示 3 个特点，每个特点配说明文字与解析 demo，后面集中展示 20 个完整 demo。请先在开发分支修改并本地预览，通过 Pull Request 提交，并附上电脑和手机宽度下的截图。可以更换模板，但需要保留或同步调整部署流程，确保合并后线上仍可访问。完整开发流程见仓库的 `DEVELOPMENT.md`。

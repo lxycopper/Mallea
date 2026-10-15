@@ -2,7 +2,7 @@
 
 Building, Steering, Extending Interactive Worlds with Code.
 
-Project website: https://lxycopper.github.io/project-page/
+Project website: https://lxycopper.github.io/Mallea/
 
 The page presents adaptive representations, editable attributes, and open-ended rollouts through 20 whitebox/render comparison demos: five capability examples and fifteen additional Gallery examples.
 
