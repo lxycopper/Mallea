@@ -1,0 +1,24 @@
+[
+  {
+    "id": "magnet-extension",
+    "title": "Magnetic interaction",
+    "feature": "extension",
+    "type": "comparison",
+    "category": "physics",
+    "description": "A magnet introduces a new interaction: iron responds, while wood stays in place.",
+    "whitebox": "static/videos/magnet-extension-whitebox.mp4",
+    "render": "static/videos/magnet-extension-render.mp4",
+    "posterWhitebox": "static/images/demos/magnet-extension-whitebox.jpg",
+    "posterRender": "static/images/demos/magnet-extension-render.jpg",
+    "original": "static/videos/magnet-extension-whitebox.mp4",
+    "durationWhitebox": 8.5,
+    "durationRender": 10.125,
+    "displayVersion": "magnet-table/v004-centered",
+    "originalVersion": "magnet-table/v004-centered",
+    "generatedVersion": "magnet-table/v006-direct-grip/candidate-A",
+    "posthocFit": false,
+    "provenance": "User-selected pair illustrating extension to a magnetic interaction. Visible selective attraction does not itself expose runtime rule installation. Geometry and action phases differ; exact frame alignment is not claimed.",
+    "sha256Whitebox": "971408c692637886c500b1d3a59bb2751caa7d83800c46d5039d7e8fb2c1eb00",
+    "sha256Render": "2d10b2ae3bdd47798ddae83acd288fa26e0ba23715facb97600e5777d9db799e"
+  }
+]

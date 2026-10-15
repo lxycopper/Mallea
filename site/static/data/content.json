@@ -1,0 +1,81 @@
+{
+  "title": "Mallea",
+  "subtitle": "Building, Steering, Extending Interactive Worlds with Code",
+  "introduction": [
+    "A world model must do more than produce a plausible next frame. It must keep track of which objects exist, where they are, and how actions change them. When these facts live only in generated images, a small intervention—changing one material or revisiting one object—can become difficult to isolate and verify.",
+    "Mallea uses executable code to maintain that state and compute its evolution. A coding agent selects the geometry, attributes, and rules needed for each interaction; a video model supplies the visual detail. This separates what determines an outcome from how it looks, while leaving the world available for inspection, intervention, and extension."
+  ],
+  "features": [
+    {
+      "id": "adaptive",
+      "heading": "Adaptive representation",
+      "body": "An interaction needs only the details that can change its outcome. A box can support whole-object contact; jointed proxies can represent limb-level contact; a local mesh can support finer contact. Mallea selects that detail per object or part, while the video model fills in appearance.",
+      "short": "Model the information that changes the interaction.",
+      "shortHeading": "Adaptive representation",
+      "subtitle": "Detail follows the interaction.",
+      "summary": "An interaction needs only the details that can change its outcome. A box can support whole-object contact; jointed proxies can represent limb-level contact; a local mesh can support finer contact. Mallea selects that detail per object or part, while the video model fills in appearance.",
+      "takeaway": "Model the information that changes the interaction.",
+      "mechanism": [
+        "Choose representation per object or part.",
+        "Use boxes, articulated proxies, or local meshes as required.",
+        "Leave unrelated appearance to the video renderer."
+      ],
+      "details": {
+        "heading": "Adaptive representations allocate detail where interaction requires it.",
+        "body": "Different interactions depend on different information. Uniformly coarse representations can omit structure that determines an outcome, while uniformly detailed representations incur unnecessary construction and simulation costs. We favor simpler representations that satisfy the target interaction requirements, allowing different levels of detail across objects and parts in the same world. For example, boxes may suffice for object-level hit detection, articulated proxies with collision geometry can support limb-level contact, and fine grasping may require local meshes. Representation selection thereby becomes part of world modeling itself: the program retains information that affects interaction outcomes and leaves other visual details to the generative model. This makes modeling fidelity a task-dependent choice that connects interaction constraints, computational cost, and freedom in visual realization.",
+        "short": "Choose simpler representations that support the required interactions, adding detail only to objects and parts whose structure affects the outcome."
+      }
+    },
+    {
+      "id": "attributes",
+      "heading": "Editable attributes",
+      "body": "Geometry determines where contact happens. Attributes such as material, strength, and damage determine how an object responds. Mallea plans these fields together with the update rules that use them. From a shared checkpoint, changing one attribute can produce a different trajectory while the remaining state provides a common starting point.",
+      "short": "Change a property, then trace its effect.",
+      "shortHeading": "Editable attributes",
+      "subtitle": "Properties shape the response.",
+      "summary": "Geometry determines where contact happens. Attributes such as material, strength, and damage determine how an object responds. Mallea plans these fields together with the update rules that use them. From a shared checkpoint, changing one attribute can produce a different trajectory while the remaining state provides a common starting point.",
+      "takeaway": "Change a property, then trace its effect.",
+      "mechanism": [
+        "Store material, strength, and damage as editable fields.",
+        "Connect each field to the rules that read it.",
+        "Compare attribute changes from a common checkpoint."
+      ],
+      "details": {
+        "heading": "Jointly planning structure and editable attributes makes interventions explicit and their effects traceable.",
+        "body": "An object’s behavior depends on both its spatial structure and its properties: structure determines how contact occurs, while fields such as material, strength, and accumulated damage determine the response. Fields should therefore be derived from interaction requirements and designed together with the chosen representation and update rules. When a hammer strikes blocks of different materials, for example, differences in response should follow from the contact process, material parameters, and the rules that use them. Encoding these dependencies in the world program allows attribute edits to affect subsequent evolution. Starting from a common checkpoint, we can hold actions and other conditions fixed, modify a target attribute and its dependent parameters, and compare the resulting trajectories to trace the source of their differences. The same world can thus serve as a reusable environment for controlled experiments on interaction conditions.",
+        "short": "Plan geometry, editable properties, and update rules together, so changes to attributes affect subsequent behavior and can be compared from a common checkpoint."
+      }
+    },
+    {
+      "id": "extension",
+      "heading": "Open-ended rollouts",
+      "body": "A world need not anticipate every interaction. As new objects enter, its model can expand with the properties and rules they require, then continue from the existing state.",
+      "short": "New capabilities. Continuous state.",
+      "shortHeading": "Open-ended rollouts",
+      "subtitle": "Extend the world as new interactions emerge.",
+      "summary": "A world need not anticipate every interaction. As new objects enter, its model can expand with the properties and rules they require, then continue from the existing state.",
+      "takeaway": "New capabilities. Continuous state.",
+      "mechanism": [
+        "Introduce the mechanism a new interaction requires.",
+        "Carry existing objects and their state forward.",
+        "Continue the rollout within the extended model."
+      ],
+      "details": {
+        "heading": "Open-ended rollouts extend a world’s capabilities while preserving its accumulated state.",
+        "body": "Attribute edits operate within existing mechanisms, but a new request may introduce an effect that the model does not yet represent. We extend modeling into the rollout itself, adding structure, field definitions, and rules when needed, without requiring an elaborate initial model of every possible interaction. New mechanisms take effect from the current state and work alongside existing motion and interaction processes. A world that initially supports only moving iron sheets and wooden blocks, for example, can acquire magnetic-response fields and rules after a follow-up request, so that iron is attracted while wood is not similarly pulled toward the magnet. Object identities and existing positions, damage, and resource levels must carry over as the starting point for the new rules. This extends the requirement for consistency from state updates to changes in the model itself: the world accumulates interaction outcomes while expanding the interactions it can compute, allowing existing objects and states to support new tasks.",
+        "short": "Add missing structure, fields, and rules during a rollout, then continue from preserved object identities and accumulated state rather than restarting the world."
+      }
+    }
+  ],
+  "heroDescription": "A coding agent builds only the structure an interaction needs, keeps its state explicit, and extends its rules as new requests arise.",
+  "introShort": [
+    "A world model must do more than produce a plausible next frame. It must keep track of which objects exist, where they are, and how actions change them. When these facts live only in generated images, a small intervention—changing one material or revisiting one object—can become difficult to isolate and verify.",
+    "Mallea uses executable code to maintain that state and compute its evolution. A coding agent selects the geometry, attributes, and rules needed for each interaction; a video model supplies the visual detail. This separates what determines an outcome from how it looks, while leaving the world available for inspection, intervention, and extension."
+  ],
+  "details": {
+    "introduction": [
+      "A central goal of world modeling is to build environments that respond to actions and simulate their consequences. Recent video world models, including Genie 3, the LingBot-World family, and WorldPlay (HY-World 1.5), turn text or image inputs into streams of video conditioned on user actions, allowing people and agents to explore and interact with generated environments. Advances in long-horizon generation and memory have made these environments increasingly coherent. Visual coherence, however, is distinct from reliable world state: a long rollout may retain its visual quality while changing a revisited scene, losing an object’s identity, or producing physically implausible contact. Moreover, when interaction outcomes are produced primarily through video prediction, the object properties and rules that determine those outcomes are difficult to inspect, edit, and check independently. This complicates controlled interventions: changing one condition while preserving the rest of the state and tracing the consequences. Repeated planning, comparison, and intervention therefore call for state and rules that remain accessible throughout an interaction.",
+      "Code world models (CWMs) address these concerns by making state and its updates explicit: an executable program stores the world state and computes the changes induced by actions. Recent work combines this approach with video generation, assigning the program responsibility for key objects and the consequences of their interactions, while a generative model supplies visual detail. Past changes thus provide an explicit starting point for future computation, and both state and rules can be inspected and modified. Applying this approach to diverse and evolving tasks raises three connected questions: how to choose object representations that support the required interactions without unnecessary complexity; how to equip those representations with editable attributes and corresponding rules; and how to extend the model when new requests exceed its capabilities while retaining the state accumulated so far. We introduce Mallea, a code world model that places representations, fields, and rules within a common planning process, allowing a coding agent to adapt how the world is modeled as interaction requirements evolve."
+    ]
+  }
+}
