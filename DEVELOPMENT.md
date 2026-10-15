@@ -94,45 +94,36 @@ py -m http.server 8000 --bind 127.0.0.1 --directory site
 
 新增章节使用唯一的 `id`，并相应更新导航锚点。每个视频也使用唯一的 `id`，方便后续编写独立控制逻辑。
 
-## 6. 组织 3 个解析 demo 和 20 个完整 demo
+## 6. 组织主页的 20 组 demo
 
-可以采用以下命名约定；这些是建议新增的素材文件名，并非仓库中已经存在的文件：
+当前主页按展示顺序为 20 组视频编号，`01`–`05` 对应顶部特点示例，`06`–`20` 对应 Gallery。每组白模与渲染使用相同编号，完整对照表见 [视频编号说明](site/static/videos/README.md)。
 
 ```text
 site/static/videos/
-  feature-01.mp4
-  feature-02.mp4
-  feature-03.mp4
-  demo-01.mp4
+  01-whitebox.mp4
+  01-render.mp4
   ...
-  demo-20.mp4
-
-site/static/images/
-  feature-01.jpg
-  feature-02.jpg
-  feature-03.jpg
-  demo-01.jpg
-  ...
-  demo-20.jpg
+  20-whitebox.mp4
+  20-render.mp4
 ```
 
-为每个完整 demo 记录编号、标题、简短说明、视频路径、封面路径；需要分组时再增加特点标签。文件名尽量使用英文、数字和连字符，保持编号稳定。
+标题、说明、视频路径和封面路径维护在 `site/static/data/` 的三个 demo JSON 文件中。demo ID 和封面文件名沿用原值，不随视频编号变动。以后替换素材时保持编号稳定；新增示例可从 `21` 继续编号。
 
 20 个 demo 建议使用响应式网格，桌面端约 3 列，手机端 1 列。默认显示封面，用户点击后播放；控制初始视频加载量。解析 demo 可以配更详细的文字、局部标注或并排对比，帮助读者理解对应特点。
 
-下面是一个可放入 `site/index.html` 的视频示例；使用前应先放入对应素材：
+下面以第 `03` 组白模为例，说明静态视频的引用方式；主页对比播放器实际从 JSON 文件读取路径：
 
 ```html
 <video controls playsinline preload="none"
-       poster="static/images/demo-01.jpg">
-  <source src="static/videos/demo-01.mp4" type="video/mp4">
+       poster="static/images/demos/03-whitebox.jpg">
+  <source src="static/videos/03-whitebox.mp4" type="video/mp4">
   你的浏览器暂不支持此视频。
 </video>
 ```
 
 优先使用浏览器广泛支持的 MP4 编码组合，例如 H.264 视频和 AAC 音频。有声音的 demo 应让用户主动开启声音。上传前检查画质、音画同步和文件大小；GitHub 普通 Git 推送有单文件 100 MiB 的限制。
 
-从首页引用资源时使用 `static/videos/demo-01.mp4` 这样的相对路径。以 `/static/` 开头的路径会从域名根目录寻找资源，与当前 `/Mallea/` 的部署位置不匹配。新增子目录页面时，也要按其相对位置调整路径。
+从首页引用资源时使用 `static/videos/03-whitebox.mp4` 这样的相对路径。以 `/static/` 开头的路径会从域名根目录寻找资源，与当前 `/Mallea/` 的部署位置不匹配。新增子目录页面时，也要按其相对位置调整路径。
 
 ## 7. 日常协作与上传
 
